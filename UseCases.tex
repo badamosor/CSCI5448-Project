@@ -1,0 +1,387 @@
+\documentclass[12pt]{article}
+\usepackage{array}
+\usepackage[table]{xcolor} 
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+\begin{document}
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-01 \\\hline
+			\textbf{Use Case Name:} & Create Account \\\hline
+			\textbf{Description:} & Users can create an account to use for our service \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & \\\hline
+			\textbf{Post-conditions} & Users will have an account. A confirmation email will be sent. \\\hline
+			\textbf{Frequency of Use:} & Once \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+				&\textbf{Actor Action}&\textbf{System Response}\\\hline
+				1 & Enter email, username, and password & \\\hline
+				2 & Click ``Sign Up'' & Hash and store information\\\hline
+				3 & & Send confirmation email\\\hline
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} & Username or email already in use \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-02 \\\hline
+			\textbf{Use Case Name:} & Create Playlist \\\hline
+			\textbf{Description:} & Users can create a new playlist \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in \\\hline
+			\textbf{Post-conditions} & A new playlist is created \\\hline
+			\textbf{Frequency of Use:} & Less than 10 times a day on per user on average \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+				&\textbf{Actor Action}&\textbf{System Response}\\\hline
+				1 & Click ``New Playlist'' & Opens new playlist dialog \\\hline
+				2 & Enter name & \\\hline
+				3 & Enter optional description &\\\hline
+				4 & Click ``Done'' & New playlist is associated with user
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-03 \\\hline
+			\textbf{Use Case Name:} & Find song \\\hline
+			\textbf{Description:} & Users can search a database of songs to add to their playlists \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+			\textbf{Post-conditions} & A song is added to a playlist \\\hline
+			\textbf{Frequency of Use:} & Up to hundreds of times a day per user \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+				&\textbf{Actor Action}&\textbf{System Response}\\\hline
+				1 & Enter song into search bar & Searches database to find matching result\\\hline
+				2 & Choose playlist to add song to & Song is added to playlist \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-04 \\\hline
+			\textbf{Use Case Name:} & Find album \\\hline
+			\textbf{Description:} & Users can search a database of albums to add to their playlists \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+			\textbf{Post-conditions} & An album is added to a playlist \\\hline
+			\textbf{Frequency of Use:} & Up to hundreds of times a day per user \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+				&\textbf{Actor Action}&\textbf{System Response}\\\hline
+				1 & Enter album into search bar & Searches database to find matching result\\\hline
+				2 & Choose playlist to add album to & Album is added to playlist \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & Can choose subset of songs from album to add to playlist \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+
+		\begin{center}
+			\begin{tabularx}{450pt}{|r|X|}
+				\hline
+				\textbf{Use Case ID:} & UC-05 \\\hline
+				\textbf{Use Case Name:} & Find artist \\\hline
+				\textbf{Description:} & Users can search a database of artists to add to their playlists \\\hline
+				&\\ \hline
+				\textbf{Actors:}& Users\\\hline
+				\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+				\textbf{Post-conditions} & An artist's music is added to a playlist \\\hline
+				\textbf{Frequency of Use:} & Once per playlist \\\hline
+				\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+						&\textbf{Actor Action}&\textbf{System Response}\\\hline
+						1 & Enter artist into search bar & Searches database to find matching result\\\hline
+						2 & Choose song or album from artist & \\\hline
+						3 & Choose playlist to add song or album to & Song or album is added to playlist \\
+				\end{tabularx}}\\\hline
+				\textbf{Variations:} &  \\\hline
+				\textbf{Exceptions:} &  \\\hline
+				\textbf{Developer Notes:} & \\\hline
+			\end{tabularx}
+		\end{center}
+	
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-06 \\\hline
+			\textbf{Use Case Name:} & Share playlist \\\hline
+			\textbf{Description:} & Users can get link to playlist to share \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+			\textbf{Post-conditions} & A unique link is created for the playlist \\\hline
+			\textbf{Frequency of Use:} & Once per playlist \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+				&\textbf{Actor Action}&\textbf{System Response}\\\hline
+				1 & Click ``Share playlist'' & Displays unique playlist link which user can copy\\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-07 \\\hline
+			\textbf{Use Case Name:} & Make playlist collaborative \\\hline
+			\textbf{Description:} & Users can choose to make playlist collaborative so others can also edit it \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+			\textbf{Post-conditions} & Playlist can now be edited by multiple users \\\hline
+			\textbf{Frequency of Use:} & Once per playlist \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+				&\textbf{Actor Action}&\textbf{System Response}\\\hline
+				1 & Click ``Make Collaborative'' & Sets flag for playlist that it can be edited by someone other than the playlist owner\\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & Can also revoke a playlists collaborative features \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-08 \\\hline
+			\textbf{Use Case Name:} & Tag playlists \\\hline
+			\textbf{Description:} & Users can tag playlists based on style, genre, etc \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+			\textbf{Post-conditions} & Playlist has at least one tag \\\hline
+			\textbf{Frequency of Use:} & Less than 10 times per playlist on average \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Click ``Tag Playlist'' & Open tag search dialog\\\hline 
+					2 & User can browse or search for desired tag & \\\hline
+					3 & Select tag & Tag added to playlist in database \\\hline
+					4 & Steps 2 and 3 can be repeated & \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-09 \\\hline
+			\textbf{Use Case Name:} & Search Playlist by Name \\\hline
+			\textbf{Description:} & Users can search for a playlist by name \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in \\\hline
+			\textbf{Post-conditions} & User can view desired playlist \\\hline
+			\textbf{Frequency of Use:} & Daily \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Enter playlist name into search bar & Searches database to find matching result\\\hline 
+					2 & User selects playlist & Playlist is displayed \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-10 \\\hline
+			\textbf{Use Case Name:} & Search Playlist by Tag \\\hline
+			\textbf{Description:} & Users can search for a playlist by tag \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in \\\hline
+			\textbf{Post-conditions} & User can view desired playlist \\\hline
+			\textbf{Frequency of Use:} & Daily \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Enter tag into search bar & Searches database to find matching result\\\hline 
+					2 & User selects playlist from list & Playlist is displayed \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-11 \\\hline
+			\textbf{Use Case Name:} & Follow Playlist \\\hline
+			\textbf{Description:} & Users can search for a playlist by tag \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and have searched for a playlist\\\hline
+			\textbf{Post-conditions} & User follows playlist meaning it will show up in their list of playlists \\\hline
+			\textbf{Frequency of Use:} & Daily \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & On viewing a playlists, can click ``Follow.'' & Playlist now appears in users list of playlists\\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-12 \\\hline
+			\textbf{Use Case Name:} & Sync with Spotify Account \\\hline
+			\textbf{Description:} & User can sync with their Spotify account to facilitate exporting playlists \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in \\\hline
+			\textbf{Post-conditions} & User's Spotify account is synced \\\hline
+			\textbf{Frequency of Use:} & Once \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Click ``Sync with Spotify'' & Open dialog to enter Spotify username and password\\\hline 
+					2 & User enters Spotify username and password  & Authenticates connection \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} & Spotify username or password are incorrect  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-13 \\\hline
+			\textbf{Use Case Name:} & Export playlist to Spotify \\\hline
+			\textbf{Description:} & User can export playlist to their Spotify account so they can listen to it on the Spotify streaming service \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and are viewing a playlist \\\hline
+			\textbf{Post-conditions} & User has successfully exported playlist into Spotify \\\hline
+			\textbf{Frequency of Use:} & Daily \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Click ``Export to Spotify''  & Playlist is exported into Spotify format and added to users Spotify account  \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-14 \\\hline
+			\textbf{Use Case Name:} & Sync with Google Play Music Account \\\hline
+			\textbf{Description:} & User can sync with their Google Play Music account to facilitate exporting playlists \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in \\\hline
+			\textbf{Post-conditions} & User's Google Play Music account is synced \\\hline
+			\textbf{Frequency of Use:} & Once \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Click ``Sync with Google Play Music'' & Open dialog to enter Google Play Music username and password\\\hline 
+					2 & User enters Google Play Music username and password  & Authenticates connection \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} & Google Play Music username or password are incorrect  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+	
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-15 \\\hline
+			\textbf{Use Case Name:} & Export playlist to Google Play Music \\\hline
+			\textbf{Description:} & User can export playlist to their Google Play Music account so they can listen to it on the Google Play Music streaming service \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and are viewing a playlist \\\hline
+			\textbf{Post-conditions} & User has successfully exported playlist into Google Play Music \\\hline
+			\textbf{Frequency of Use:} & Daily \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Click ``Export to Google Play Music''  & Playlist is exported into Google Play Music format and added to users Google Play Music account  \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-16 \\\hline
+			\textbf{Use Case Name:} & Sync with Tidal Account \\\hline
+			\textbf{Description:} & User can sync with their Tidal account to facilitate exporting playlists \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in \\\hline
+			\textbf{Post-conditions} & User's Tidal account is synced \\\hline
+			\textbf{Frequency of Use:} & Once \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Click ``Sync with Tidal'' & Open dialog to enter Tidal username and password\\\hline 
+					2 & User enters Tidal username and password  & Authenticates connection \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} & Tidal username or password are incorrect  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+	
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-17 \\\hline
+			\textbf{Use Case Name:} & Export playlist to Tidal \\\hline
+			\textbf{Description:} & User can export playlist to their Tidal account so they can listen to it on the Tidal streaming service \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and are viewing a playlist \\\hline
+			\textbf{Post-conditions} & User has successfully exported playlist into Spotify \\\hline
+			\textbf{Frequency of Use:} & Daily \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Click ``Export to Tidal''  & Playlist is exported into Tidal format and added to users Tidal account  \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} & \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+
+
+
+	
+\end{document}
