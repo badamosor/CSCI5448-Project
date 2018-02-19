@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 \usepackage{tabularx}
 
+
+
 \begin{document}
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
@@ -97,34 +99,56 @@
 	\end{center}
 
 
-		\begin{center}
-			\begin{tabularx}{450pt}{|r|X|}
-				\hline
-				\textbf{Use Case ID:} & UC-05 \\\hline
-				\textbf{Use Case Name:} & Find artist \\\hline
-				\textbf{Description:} & Users can search a database of artists to add to their playlists \\\hline
-				&\\ \hline
-				\textbf{Actors:}& Users\\\hline
-				\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
-				\textbf{Post-conditions} & An artist's music is added to a playlist \\\hline
-				\textbf{Frequency of Use:} & Once per playlist \\\hline
-				\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
-						&\textbf{Actor Action}&\textbf{System Response}\\\hline
-						1 & Enter artist into search bar & Searches database to find matching result\\\hline
-						2 & Choose song or album from artist & \\\hline
-						3 & Choose playlist to add song or album to & Song or album is added to playlist \\
-				\end{tabularx}}\\\hline
-				\textbf{Variations:} &  \\\hline
-				\textbf{Exceptions:} &  \\\hline
-				\textbf{Developer Notes:} & \\\hline
-			\end{tabularx}
-		\end{center}
-	
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-05 \\\hline
+			\textbf{Use Case Name:} & Find artist \\\hline
+			\textbf{Description:} & Users can search a database of artists to add to their playlists \\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+			\textbf{Post-conditions} & An artist's music is added to a playlist \\\hline
+			\textbf{Frequency of Use:} & Up to hundreds of times a day per usert \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & Enter artist into search bar & Searches database to find matching result\\\hline
+					2 & Choose song or album from artist & \\\hline
+					3 & Choose playlist to add song or album to & Song or album is added to playlist \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} &  \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
 
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
 			\textbf{Use Case ID:} & UC-06 \\\hline
+			\textbf{Use Case Name:} & Delete Song  \\\hline
+			\textbf{Description:} & Users can delete songs they have added to a playlist\\\hline
+			&\\ \hline
+			\textbf{Actors:}& Users\\\hline
+			\textbf{Pre-conditions} & User is logged in and they have a least one playlist created \\\hline
+			\textbf{Post-conditions} & A song is deleted from playlist \\\hline
+			\textbf{Frequency of Use:} & Up to hundreds of times a day per user \\\hline
+			\textbf{Flow of Events:} & {\begin{tabularx}{320pt}{|c|X|X|}
+					&\textbf{Actor Action}&\textbf{System Response}\\\hline
+					1 & User selects song & \\\hline
+					2 & Clicks ``Delete'' & Remove song from playlist \\
+			\end{tabularx}}\\\hline
+			\textbf{Variations:} &  \\\hline
+			\textbf{Exceptions:} &  \\\hline
+			\textbf{Developer Notes:} & \\\hline
+		\end{tabularx}
+	\end{center}
+	
+
+	\begin{center}
+		\begin{tabularx}{450pt}{|r|X|}
+			\hline
+			\textbf{Use Case ID:} & UC-07 \\\hline
 			\textbf{Use Case Name:} & Share playlist \\\hline
 			\textbf{Description:} & Users can get link to playlist to share \\\hline
 			&\\ \hline
@@ -145,7 +169,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-07 \\\hline
+			\textbf{Use Case ID:} & UC-08 \\\hline
 			\textbf{Use Case Name:} & Make playlist collaborative \\\hline
 			\textbf{Description:} & Users can choose to make playlist collaborative so others can also edit it \\\hline
 			&\\ \hline
@@ -166,7 +190,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-08 \\\hline
+			\textbf{Use Case ID:} & UC-09 \\\hline
 			\textbf{Use Case Name:} & Tag playlists \\\hline
 			\textbf{Description:} & Users can tag playlists based on style, genre, etc \\\hline
 			&\\ \hline
@@ -190,7 +214,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-09 \\\hline
+			\textbf{Use Case ID:} & UC-10 \\\hline
 			\textbf{Use Case Name:} & Search Playlist by Name \\\hline
 			\textbf{Description:} & Users can search for a playlist by name \\\hline
 			&\\ \hline
@@ -212,7 +236,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-10 \\\hline
+			\textbf{Use Case ID:} & UC-11 \\\hline
 			\textbf{Use Case Name:} & Search Playlist by Tag \\\hline
 			\textbf{Description:} & Users can search for a playlist by tag \\\hline
 			&\\ \hline
@@ -234,7 +258,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-11 \\\hline
+			\textbf{Use Case ID:} & UC-12 \\\hline
 			\textbf{Use Case Name:} & Follow Playlist \\\hline
 			\textbf{Description:} & Users can search for a playlist by tag \\\hline
 			&\\ \hline
@@ -255,7 +279,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-12 \\\hline
+			\textbf{Use Case ID:} & UC-13 \\\hline
 			\textbf{Use Case Name:} & Sync with Spotify Account \\\hline
 			\textbf{Description:} & User can sync with their Spotify account to facilitate exporting playlists \\\hline
 			&\\ \hline
@@ -277,7 +301,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-13 \\\hline
+			\textbf{Use Case ID:} & UC-14 \\\hline
 			\textbf{Use Case Name:} & Export playlist to Spotify \\\hline
 			\textbf{Description:} & User can export playlist to their Spotify account so they can listen to it on the Spotify streaming service \\\hline
 			&\\ \hline
@@ -298,7 +322,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-14 \\\hline
+			\textbf{Use Case ID:} & UC-15 \\\hline
 			\textbf{Use Case Name:} & Sync with Google Play Music Account \\\hline
 			\textbf{Description:} & User can sync with their Google Play Music account to facilitate exporting playlists \\\hline
 			&\\ \hline
@@ -320,7 +344,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-15 \\\hline
+			\textbf{Use Case ID:} & UC-16 \\\hline
 			\textbf{Use Case Name:} & Export playlist to Google Play Music \\\hline
 			\textbf{Description:} & User can export playlist to their Google Play Music account so they can listen to it on the Google Play Music streaming service \\\hline
 			&\\ \hline
@@ -341,7 +365,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-16 \\\hline
+			\textbf{Use Case ID:} & UC-17 \\\hline
 			\textbf{Use Case Name:} & Sync with Tidal Account \\\hline
 			\textbf{Description:} & User can sync with their Tidal account to facilitate exporting playlists \\\hline
 			&\\ \hline
@@ -363,7 +387,7 @@
 	\begin{center}
 		\begin{tabularx}{450pt}{|r|X|}
 			\hline
-			\textbf{Use Case ID:} & UC-17 \\\hline
+			\textbf{Use Case ID:} & UC-18 \\\hline
 			\textbf{Use Case Name:} & Export playlist to Tidal \\\hline
 			\textbf{Description:} & User can export playlist to their Tidal account so they can listen to it on the Tidal streaming service \\\hline
 			&\\ \hline
