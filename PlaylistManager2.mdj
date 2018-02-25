@@ -8618,12 +8618,12 @@
 							"showShadow": true,
 							"containerChangeable": false,
 							"containerExtending": false,
-							"left": 32,
+							"left": 24,
 							"top": 160,
 							"width": 457,
 							"height": 64,
 							"autoResize": false,
-							"text": "Add Content to Playlist  Use Case UC-04",
+							"text": "Add Content to Playlist  Use Case UR-04",
 							"wordWrap": true
 						}
 					]
