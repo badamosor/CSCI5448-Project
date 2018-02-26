@@ -1,8 +1,11 @@
 \documentclass[12pt]{article}
 \usepackage{array}
+\usepackage{float}
 \usepackage{caption}
 \usepackage[table]{xcolor} 
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{ltxtable}
 \usepackage{tabularx}
 
 \begin{document}
@@ -13,31 +16,36 @@
 		\caption*{User Requirements}
 		\begin{tabularx}{450pt}{lXl}
 			ID & Description & Priority\\\hline
-			UC-01 & Users can create account & High \\
-			UC-02 & Users can create a playlist & High \\
-			UC-03 & Users can search database for song title, album title,
+			UR-01 & Users can create account & High \\
+			UR-02 & Users can create a playlist & High \\
+			UR-03 & Users can search database for song title, album title,
 			artist, and playlist name & High \\
-			UC-04 & Users can add songs to playlists & High \\
-			UC-05 & Users can add albums to playlists & Medium \\
-			UC-06 & Users can view artists and selects songs or albums from artist to add to a playlist & Medium \\
-			UC-07 & Users can make playlists collaborative & Low \\
-			UC-08 & Users can share a playlist & High \\
-			UC-09 & Users can follow another playlist & Low\\
-			UC-10 & Users can export playlists into Spotify & High \\
-			UC-11 & Users can export playlists into Tidal & High \\
-			UC-12 & Users can export playlists into Google Play Music & High \\
-			UC-13 & Users can connect their Spotify account to our service & High \\
-			UC-14 & Users can connect their Tidal account to our service & High \\
-			UC-15 & Users can connect their Google Play Music account to our service & High \\
+			UR-04 & Users can add songs to playlists & High \\
+			UR-05 & Users can add albums or subsets of albums to playlists & Medium \\
+			UR-06 & Users can view artists and selects songs or albums from artist to add to a playlist & Medium \\
+			UR-07 & Users can remove songs from a playlist & Medium \\
+			UR-08 & Users can make playlists collaborative & Low \\
+			UR-09 & Users can share a playlist & High \\
+			UR-10 & Users can connect their Spotify account to our service & High \\
+			UR-11 & Users can connect their Tidal account to our service & High \\
+			UR-12 & Users can connect their Google Play Music account to our service & High \\
+			UR-13 & Users can export playlists into Spotify & High \\
+			UR-14 & Users can export playlists into Tidal & High \\
+			UR-15 & Users can export playlists into Google Play Music & High \\
 		\end{tabularx}
 	\end{table*}
 	\begin{table*}
 		\centering
-		\label{tab:fr}
-		\caption*{Functional Requirements}
+		\label{tab:nfr}
+		\caption*{Non-Functional Requirements}
 		\begin{tabularx}{450pt}{lXl}
-			ID & Description & High \\
-			
+			ID & Description & Priority\\\hline
+			NFR-01 & Search has to be less than 20ms & High \\
+			NFR-02 & Service should support thousands of concurrent users & High \\
+			NFR-03 & Should be able to expand to other music services easily & Medium \\
 		\end{tabularx}
 	\end{table*}
+	\LTXtable{450pt}{functionalTable}
+	
+	
 \end{document}
