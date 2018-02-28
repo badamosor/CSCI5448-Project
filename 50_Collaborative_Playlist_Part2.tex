@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{array}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[table]{xcolor} 
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{ltxtable}
+\usepackage{tabularx}
+
+\begin{document}
+	\rowcolors{2}{gray!25}{white}
+	\begin{table*}
+		\centering
+		\label{tab:ur}
+		\caption*{User Requirements}
+		\begin{tabularx}{450pt}{lXl}
+			ID & Description & Priority\\\hline
+			UR-01 & Users can create account & High \\
+			UR-02 & Users can create a playlist & High \\
+			UR-03 & Users can search database for song title, album title,
+			artist, and playlist name & High \\
+			UR-04 & Users can add content (songs, from albums or artists) to a playlist & High \\
+			UR-05 & Users can remove songs from a playlist & Medium \\
+			UR-06 & Users can make playlists collaborative & Low \\
+			UR-07 & Users can share a playlist & High \\
+			UR-08 & Users can connect their Spotify account to our service & High \\
+			UR-09 & Users can connect their Tidal account to our service & High \\
+			UR-10 & Users can connect their Google Play Music account to our service & High \\
+			UR-11 & Users can export playlists into Spotify & High \\
+			UR-12 & Users can export playlists into Tidal & High \\
+			UR-13 & Users can export playlists into Google Play Music & High \\
+		\end{tabularx}
+	\end{table*}
+	\begin{table*}
+		\centering
+		\label{tab:nfr}
+		\caption*{Non-Functional Requirements}
+		\begin{tabularx}{450pt}{lXl}
+			ID & Description & Priority\\\hline
+			NFR-01 & Search has to be less than 20ms & High \\
+			NFR-02 & Service should support thousands of concurrent users & High \\
+			NFR-03 & Should be able to expand to other music services easily & Medium \\
+		\end{tabularx}
+	\end{table*}
+	\LTXtable{450pt}{functionalTable}
+	
+	
+\end{document}
