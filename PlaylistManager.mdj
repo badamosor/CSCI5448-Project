@@ -18126,12 +18126,12 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 48,
+											"left": 40,
 											"top": 120,
 											"width": 60,
-											"height": 51,
+											"height": 90,
 											"autoResize": false,
-											"text": "1. User selects song",
+											"text": "1. User selects a song from the search results",
 											"wordWrap": true
 										},
 										{
@@ -42327,9 +42327,9 @@
 											"left": 32,
 											"top": 120,
 											"width": 60,
-											"height": 116,
+											"height": 129,
 											"autoResize": false,
-											"text": "1a. User selects the search term results for  an artist",
+											"text": "(b) 1. User selects the search term results for  an artist",
 											"wordWrap": true
 										},
 										{
@@ -42352,7 +42352,7 @@
 											"width": 60,
 											"height": 77,
 											"autoResize": false,
-											"text": "2a1. User selects Add Album",
+											"text": "(b) 3. User selects Add Album",
 											"wordWrap": true
 										},
 										{
@@ -42375,7 +42375,7 @@
 											"width": 60,
 											"height": 64,
 											"autoResize": false,
-											"text": "3a1. User selects playlist",
+											"text": "(b) 4. User selects playlist",
 											"wordWrap": true
 										},
 										{
@@ -42398,7 +42398,7 @@
 											"width": 60,
 											"height": 77,
 											"autoResize": false,
-											"text": "2a2. User selects Add Song",
+											"text": "(b) 3. User selects Add Song",
 											"wordWrap": true
 										},
 										{
@@ -42421,7 +42421,7 @@
 											"width": 60,
 											"height": 64,
 											"autoResize": false,
-											"text": "3a2. User selects playlist",
+											"text": "(b) 4. User selects playlist",
 											"wordWrap": true
 										}
 									],
@@ -49713,7 +49713,7 @@
 									"width": 89,
 									"height": 105,
 									"autoResize": false,
-									"text": "1b. User selects an album search result",
+									"text": "(a)1. User selects an album search result",
 									"wordWrap": true
 								},
 								{
@@ -49736,7 +49736,7 @@
 									"width": 79,
 									"height": 51,
 									"autoResize": false,
-									"text": "2b1. User selects add album",
+									"text": "(a) 3. User selects add album",
 									"wordWrap": true
 								},
 								{
@@ -49759,7 +49759,7 @@
 									"width": 60,
 									"height": 64,
 									"autoResize": false,
-									"text": "3b1. User selects playlist ",
+									"text": "(a) 4. User selects playlist ",
 									"wordWrap": true
 								},
 								{
@@ -49782,7 +49782,7 @@
 									"width": 60,
 									"height": 77,
 									"autoResize": false,
-									"text": "2b2. User selects add song",
+									"text": "(a) 3. User selects add song",
 									"wordWrap": true
 								},
 								{
@@ -49805,7 +49805,7 @@
 									"width": 60,
 									"height": 64,
 									"autoResize": false,
-									"text": "3b2. User selects playlist",
+									"text": "(a) 4. User selects playlist",
 									"wordWrap": true
 								}
 							],
