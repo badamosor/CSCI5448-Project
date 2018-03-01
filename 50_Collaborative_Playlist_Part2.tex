@@ -3,6 +3,7 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{enumitem}
+\usepackage{subcaption}
 \usepackage[table]{xcolor} 
 \usepackage{graphicx}
 \usepackage{longtable}
@@ -59,6 +60,7 @@
 	\LTXtable{450pt}{functionalTable}
 	\section*{Use Cases}
 	\begin{figure}[H]
+		\centering
 		\includegraphics[scale=0.4]{SystemUseCase}
 		\caption{System Use Case Diagram}
 		\label{fig:sucd}
@@ -156,5 +158,72 @@
 			\textbf{Developer Notes:} & \\\hline
 		\end{tabularx}
 	\end{center}
+	\section*{Activity Diagrams}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{SearchActivityDiagram}
+		\caption{Activity Diagram for Searching}
+		\label{fig:act1}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{ActivityDiagramAddContent}
+		\caption{Activity Diagram for Adding Content}
+		\label{fig:act2}
+	\end{figure}
+
+	\section*{UI Mockups}
+	We begin with a statechart diagram of the UI and then a closer look at all the screens for more detail. 
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{StatechartDiagram.png}
+		\caption{Main Window}
+		\label{fig:statechart}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{GenericMainWindow}
+		\caption{Main Window}
+		\label{fig:gmw}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{CreateAccount.png}
+		\caption{Login and Create Account Windows}
+		\label{fig:login}
+	\end{figure}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{SearchWindow.png}
+	\caption{Search Window}
+	\label{fig:search}
+	\end{figure}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{AlbumWindow.png}
+		\caption{Album View Window}
+		\label{fig:album}
+	\end{figure}
+	\begin{figure*}[t!]
+		\centering
+		\begin{subfigure}[t]{0.3\textwidth}
+			\centering
+			\includegraphics[scale=0.4]{ChoosePlaylistDialog}
+			\caption{Choose Playlist}
+		\end{subfigure}%
+		~ 
+		\begin{subfigure}[t]{0.3\textwidth}
+			\centering
+			\includegraphics[scale=0.4]{NewPlaylistDialog.png}
+			\caption{New Playlist}
+		\end{subfigure}
+		~
+		\begin{subfigure}[t]{0.3\textwidth}
+			\centering
+			\includegraphics[scale=0.4]{ExportPlaylist.png}
+			\caption{Export Playlist}
+		\end{subfigure}
+		\caption{Dialogs}
+	\end{figure*}
 	
 \end{document}
