@@ -19,10 +19,11 @@
    	 \end{itemize}
     \noindent
     \textbf{Title:} Service Independent Playlist Creator
-	\section*{Summary}
+	\section{Summary}
 	Sharing playlists of music between a large group of people can be difficult when
 	everyone doesn't listen to music through the same service. This will allow people to create
 	playlists in a generic format that can then be integrated into the user’s service of choice. This allows people to share their playlists with their friends who can then export it into the streaming service of their choice. 
+	\section{Project Requirements}
 	\rowcolors{2}{blue!10}{white}
 	\begin{table}[H]
 		\centering
@@ -58,7 +59,7 @@
 		\end{tabularx}
 	\end{table}
 	\LTXtable{450pt}{functionalTable}
-	\section*{Use Cases}
+	\section{Use Cases}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.4]{SystemUseCase}
@@ -158,7 +159,7 @@
 			\textbf{Developer Notes:} & \\\hline
 		\end{tabularx}
 	\end{center}
-	\section*{Activity Diagrams}
+	\section{Activity Diagrams}
 		\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{SearchActivityDiagram}
@@ -172,7 +173,7 @@
 		\label{fig:act2}
 	\end{figure}
 
-	\section*{UI Mockups}
+	\section{UI Mockups}
 	We begin with a statechart diagram of the UI and then a closer look at all the screens for more detail. 
 		\begin{figure}[H]
 		\centering
@@ -204,6 +205,18 @@
 		\caption{Album View Window}
 		\label{fig:album}
 	\end{figure}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{PlaylistWindow.png}
+	\caption{Playlist View Window}
+	\label{fig:playlist}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{ArtistWindow.png}
+		\caption{Artist View Window}
+		\label{fig:artist}
+	\end{figure}
 	\begin{figure*}[t!]
 		\centering
 		\begin{subfigure}[t]{0.3\textwidth}
@@ -225,5 +238,32 @@
 		\end{subfigure}
 		\caption{Dialogs}
 	\end{figure*}
+
+	\section{Sequence Diagrams}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{UseCaseAddSong.png}
+		\caption{Sequence diagram for adding a song to a playlist}
+		\label{fig:sequenceSong}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{UseCaseAddAlbum.png}
+		\caption{Sequence diagram for adding an album's content to a playlist}
+		\label{fig:sequenceAlbum}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{UseCaseAddArtist.png}
+		\caption{Sequence diagram for adding an artist's content to a playlist}
+		\label{fig:sequenceArtist}
+	\end{figure}
+	\section{Class Diagram}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{MusicManagerClassDiagram.png}
+		\caption{Class Diagram}
+		\label{fig:classDiag}
+	\end{figure}
 	
 \end{document}
