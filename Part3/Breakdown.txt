@@ -1,6 +1,7 @@
 Luke - Took lead in Django investigation. 
        Installed tools and completed the tutorial. 
        Prototyping elements of the system and integration to our design.
+       Completed artist, song, album class in Django with necessary views
        Updated class diagram from part 2.
 
 Bada  - Installed tools and completed tutorial for Django.  
