@@ -1,6 +1,5 @@
 import DBQuery
 import Playlist
-import sqlite3
 import sys
 
 class User ():
@@ -23,16 +22,15 @@ class User ():
         return self.email
     
     def createPlaylist(self, name):
-        conn = sqlite3.connect('music.db')
-        c = conn.cursor()
+        myPlaylist = Playlist.Playlist(name)
+        self.playlists.append (myPlaylist.getId())
+        return myPlaylist
+    
+    def getPlaylists(self):
+        return self.playlists
 
-        c.execute("INSERT INTO Playlist (name) values (?)", (name,))
-        playlistId = c.lastrowid
-        conn.commit()
-        conn.close()
-        self.playlists.append(playlistId)
-        return playlistId
-        
+    def addCollaboration(self, playlist):
+        playlist.setCollaboration(True);
     
 if __name__ == '__main__':
 
@@ -47,4 +45,33 @@ if __name__ == '__main__':
     print ("Email: " +  myUser.getEmail())
 
 ### Create a playlist
-    print ("Created playlist id: ", myUser.createPlaylist('TestPlaylist'))
+    ABC = myUser.createPlaylist('ABC')
+    DEF = myUser.createPlaylist('DEF')
+    OPQ = myUser.createPlaylist('OPQ')
+    print ("Created playlist id: ", ABC.getId())
+    print ("Created playlist id: ", DEF.getId())
+    print ("Created playlist id: ", OPQ.getId())
+
+### Get playlists
+    print ("Playlists: ", myUser.getPlaylists())
+
+### Add songs to a playlist
+    ABC.addSong(2)
+    ABC.addSongs([2, 3, 4, 5])
+
+    DEF.addSong(11)
+    DEF.addSongs([2, 3, 16, 1])
+
+### Delete song
+
+    ABC.deleteSong(2)
+
+### Add collaboration
+    print ("Collaboration before:", ABC.getCollaboration())
+    myUser.addCollaboration(ABC);
+    print ("Add collaboration:", ABC.getCollaboration())
+
+
+### Get songs
+
+    print DEF.getSongs()

@@ -15,3 +15,21 @@ def getList (sql, id):
     list = c.fetchall()
     conn.close()
     return list
+
+def executeSql(sql, args):
+    conn = sqlite3.connect('music.db')
+    c = conn.cursor()
+    c.execute(sql, args)
+    conn.commit()
+    conn.close()
+
+def create(sql, args):
+    conn = sqlite3.connect('music.db')
+    c = conn.cursor()
+    c.execute(sql, args)
+    id = c.lastrowid
+    conn.commit()
+    conn.close()
+    return id
+
+
