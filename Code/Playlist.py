@@ -21,7 +21,7 @@ class Playlist ():
     def getCollaboration (self):
         return self.collaboration
 
-    def printPlaylist(self):
+    def getSongs(self):
         return self.songs
     
 
@@ -34,11 +34,11 @@ if __name__ == '__main__':
 
 ### Add a list of songs
     myPlaylist.addSongs([1, 3])
-    print myPlaylist.printPlaylist()
+    print myPlaylist.getSongs()
 
 ### Delete a song 
     myPlaylist.deleteSong(1)
-    print myPlaylist.printPlaylist()
+    print myPlaylist.getSongs()
 
 ### Set and get collaboration    
     myPlaylist.setCollaboration(1)
