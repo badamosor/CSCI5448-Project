@@ -1,7 +1,8 @@
 import DBQuery
+import Song
 
 class Playlist ():
-
+ 
     discription = ""
     songs = []
     collaboration = False
@@ -50,6 +51,14 @@ if __name__ == '__main__':
 ### Delete a song 
     myPlaylist.deleteSong(1)
     print myPlaylist.getSongs()
+    
+### Print song names 
+    mySongs = Song.Song()
+    mySongIds = myPlaylist.getSongs()
+    for id in mySongIds:
+        print mySongs.getName(id)
+
+        
 
 ### Set and get collaboration    
     myPlaylist.setCollaboration(1)
