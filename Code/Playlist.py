@@ -1,10 +1,10 @@
 import DBQuery
-import Song
 
 class Playlist ():
 
+    discription = ""
     songs = []
-    collaboration = False;
+    collaboration = False
 
     def addSong(self, id):
         self.songs.append(id)
@@ -24,10 +24,21 @@ class Playlist ():
     def getSongs(self):
         return self.songs
     
+    def setDiscription (self, text):
+        self.description = text
 
+    def getDiscription (self):
+        return self.description
+    
 if __name__ == '__main__':
 
     myPlaylist = Playlist()
+
+### Set discription 
+    myPlaylist.setDiscription("This is a test playlist.")
+
+### Get discription
+    print myPlaylist.getDiscription()
 
 ### Add a song
     myPlaylist.addSong(2)
