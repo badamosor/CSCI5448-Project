@@ -1,5 +1,7 @@
 import DBQuery
 import Playlist
+import sqlite3
+import sys
 
 class User ():
  
@@ -19,7 +21,18 @@ class User ():
 
     def getEmail(self):
         return self.email
+    
+    def createPlaylist(self, name):
+        conn = sqlite3.connect('music.db')
+        c = conn.cursor()
 
+        c.execute("INSERT INTO Playlist (name) values (?)", (name,))
+        playlistId = c.lastrowid
+        conn.commit()
+        conn.close()
+        self.playlists.append(playlistId)
+        return playlistId
+        
     
 if __name__ == '__main__':
 
@@ -32,3 +45,6 @@ if __name__ == '__main__':
 ### Set and get Email 
     myUser.setEmail("abc@example.com")
     print ("Email: " +  myUser.getEmail())
+
+### Create a playlist
+    print ("Created playlist id: ", myUser.createPlaylist('TestPlaylist'))
