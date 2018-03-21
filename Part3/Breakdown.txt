@@ -1,0 +1,18 @@
+Luke - Took lead in Django investigation. 
+       Installed tools and completed the tutorial. 
+       Prototyping elements of the system and integration to our design.
+       Updated class diagram from part 2.
+
+Bada  - Installed tools and completed tutorial for Django.  
+        Wrote the prototypes for Playlist and User.
+        Working on prototyping Django front end aspects as well.
+        Pulling the content and writing the Part 3 drop.
+
+Paul  - Installed the tools.
+        Wrote scripts for creating and populating some of the database tables.
+        Wrote Python utility DBQuery for interfacing to the database.
+        Wrote Song, Album, and Artist prototypes.
+        Wrote tests to validate current prototype status of the database and classes.
+
+All:  We had four meetings and have daily GroupMe conversations.  
+      We all consulting our professor and TA for guidance.

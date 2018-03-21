@@ -1,0 +1,24 @@
+Work done since Part 2 Drop
+---------------------------
+
+o Investigation into an MVC
+   - Standardized our machines on Python 3.5
+   - Installed Django
+   - Some team members have completed the Django tutorial
+   - Work is being done working on the front end and investigating how it might integrate into our design.
+   - Prototyping integration of the framework into our application.
+
+o Software prototyped
+    - Wrote a database interface which supports pulling items and lists of items from the database.
+        - Wrote scripts to create the database and add content.  
+        - Wrote a handful of txt files that serve as inputs to create music content for test.
+        - Using sqlite3 currently.  We had intended to use MySQL but the Django tutorial was using sqlite3 out of the box and we decided that the capability was sufficient for the time being.
+    - Prototyped a number of our classes (Song, Album, Artist, User, Playlist).
+        - The prototypes implement getName(), getSongs() using the database definitions. 
+        - The prototypes implemented tests in their definitions of the classes
+        - This should serve as a framework for testing and supporting the rest of the prototyping.
+        - We intend to introduce a couple design patterns and interfaces shortly.
+
+o Updated Class Diagram
+
+o Prepared content for Part 3 drop

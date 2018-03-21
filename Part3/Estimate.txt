@@ -1,0 +1,13 @@
+Work Remaining 
+
+   o Come to closure on how our MVC will integrate into our design.  This is first priority and we need to close by the time we come back from break.
+   o Select a few design patterns to implement.  These should be prototyped in the next 1.5 weeks as well.
+       - In the near term, look at prototyping Vistor for our Search capability.
+       - Adapter for interfacing to Spotify 
+   o Implement interfaces and relationships correctly now that nuts and bolts of
+     our tools appear to work.
+   o Finish the classes.  12 hours.
+   o Integrate with framework.  16 hours.
+   o Continously test
+   o Continue to update our Class Diagrams.
+   
