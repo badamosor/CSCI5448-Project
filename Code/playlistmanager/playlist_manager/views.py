@@ -1,4 +1,8 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
+from .forms import UserForm
+from django.contrib.auth import login
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 
 from .models import Artist, Album, Song
 
@@ -7,6 +11,18 @@ def index(request):
     artist_list = Artist.objects.order_by('artist_name')[:5]
     context = {'artist_list': artist_list,}
     return render(request, 'playlist_manager/index.html', context)
+
+def create_user(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            new_user = User.objects.create_user(**form.cleaned_data)
+            login(request, new_user)
+            return HttpResponseRedirect('/playlistmanager/')
+    else:
+        form = UserForm()
+
+    return render(request, 'playlist_manager/create_user.html', {'form': form})
 
 def artist_detail(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
