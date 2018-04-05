@@ -1,9 +1,3 @@
-{% if artist_list %}
-  <ul>
-    {% for artist in artist_list %}
-      <li><a = href="{% url 'artist_detail' artist.id %}">{{ artist.artist_name }}</a></li>
-    {% endfor %}
-  </ul>
-{% else %}
- <p> No artists are available. </p>
-{% endif %}
+<h1>Welcome</h1>
+<a href="create_user">Create User</a>
+<a href="login">Login</a>
