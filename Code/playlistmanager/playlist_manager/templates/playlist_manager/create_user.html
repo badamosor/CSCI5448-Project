@@ -1,5 +1,12 @@
 <form method="post" action="">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Create new user account" />
+    <label>Username</label>
+    {{form.username}}
+    <br>
+    <label>Email</label>
+    {{form.email}}
+    <br><label>Password</label>
+    {{form.password}}
+    <br>
+    <input type="submit" value="Create account" />
 </form>
