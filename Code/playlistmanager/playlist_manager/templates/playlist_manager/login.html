@@ -8,12 +8,22 @@
     <br>
     <input type="submit" value="Create account" />
 </form> -->
-<form method="post" action="">
+<!-- <form method="post" action="">
     {% csrf_token %}
+    {{form.as_p}}
     <label>Username</label>
     {{form.username}}
     <br><label>Password</label>
     {{form.password}}
     <br>
     <input type="submit" value="Login" />
+</form> -->
+<form action='' method='POST'> {% csrf_token %}
+    <div >
+        <label for='username'> Username </label>
+        <input type='text' name='Username' id='username'>
+        <label for='password'>Password </label>
+        <input type='password' name='Password' id='password'>
+        <input type='submit' value='login'>
+    </div>
 </form>
