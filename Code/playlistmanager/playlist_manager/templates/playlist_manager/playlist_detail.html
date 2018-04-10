@@ -1,0 +1,12 @@
+<h1>{{ playlist.playlist_name }}</h1>
+<p>{{ playlist.playlist_description}}</p>
+<h3>Songs</h3>
+{% if songs.exists != 0 %}
+<ul>
+  {% for song in songs %}
+      <li><a = href="{% url 'song_detail' song.id %}">{{ song.song_name }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No songs, you should add some </p>
+{% endif %}
