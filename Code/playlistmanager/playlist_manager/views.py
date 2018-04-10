@@ -104,6 +104,7 @@ def add_song_to_playlist(request, song_id):
 def welcome(request):
     current_user = request.user
     artist_list = Artist.objects.order_by('artist_name')[:5]
+    playlist_list_collaborative = Playlist.objects.filter(collaborative_status=True).order_by('playlist_name')
     playlist_list = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
-    context = {'artist_list': artist_list,'playlist_list': playlist_list,}
+    context = {'artist_list': artist_list,'playlist_list': playlist_list,'playlist_list_collaborative': playlist_list_collaborative}
     return render(request, 'playlist_manager/welcome.html', context)
