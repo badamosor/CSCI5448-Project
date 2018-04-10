@@ -73,7 +73,8 @@ def create_playlist(request):
         if form.is_valid():
             playlist_name = form.cleaned_data.get('playlist_name')
             playlist_description = form.cleaned_data.get('playlist_description')
-            new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user)
+            collaborative_status = form.cleaned_data.get('collaborative_status')
+            new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user, collaborative_status = collaborative_status)
             new_playlist.save()
             return HttpResponseRedirect('/playlistmanager/playlist_list')
     else:

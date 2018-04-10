@@ -13,6 +13,7 @@ class UserForm(ModelForm):
 class PlaylistForm(ModelForm):
     playlist_name = forms.CharField()
     playlist_description = forms.CharField()
+    collaborative_status = forms.BooleanField(initial = False, required = False)
     class Meta:
         model = Playlist
-        fields = ('playlist_name', 'playlist_description')
+        fields = ('playlist_name', 'playlist_description', 'collaborative_status')
