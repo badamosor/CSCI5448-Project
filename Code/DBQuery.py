@@ -16,6 +16,14 @@ def getList (sql, id):
     conn.close()
     return list
 
+def find (sql):
+    conn = sqlite3.connect('music.db')
+    c = conn.cursor()
+    c.execute(sql)
+    list = c.fetchall()
+    conn.close()
+    return list
+
 def executeSql(sql, args):
     conn = sqlite3.connect('music.db')
     c = conn.cursor()
