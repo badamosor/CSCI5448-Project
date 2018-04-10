@@ -81,5 +81,8 @@ def searchDatabase (items, term):
         item.accept(visitor)
 
 if __name__ == '__main__':
+    print ("\nSearch Term: the")
     items = [ Song(), Album(), Artist() ]
     total = searchDatabase(items, "the")
+    print ("\n\nSearch Term: Blue")
+    total = searchDatabase(items, "Blue")
