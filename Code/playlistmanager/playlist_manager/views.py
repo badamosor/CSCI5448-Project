@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
-from .forms import UserForm
+from .forms import UserForm, PlaylistForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
@@ -61,5 +61,22 @@ def playlist_list(request):
 @login_required(login_url='/accounts/login/')
 def playlist_detail(request, playlist_id):
     playlist = get_object_or_404(Playlist, pk=playlist_id)
-    songs = get_list_or_404(playlist.songs.order_by('song_name'))
+    songs = playlist.songs.order_by('song_name')
+    logging.warning(type(songs))
     return render(request, 'playlist_manager/playlist_detail.html', {'playlist': playlist, 'songs': songs})
+
+@login_required(login_url='/accounts/login/')
+def create_playlist(request):
+    if request.method == "POST":
+        form = PlaylistForm(request.POST)
+        current_user = request.user
+        if form.is_valid():
+            playlist_name = form.cleaned_data.get('playlist_name')
+            playlist_description = form.cleaned_data.get('playlist_description')
+            new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user)
+            new_playlist.save()
+            return HttpResponseRedirect('/playlistmanager/playlist_list')
+    else:
+        form = PlaylistForm()
+
+    return render(request, 'playlist_manager/create_playlist.html', {'form': form})
