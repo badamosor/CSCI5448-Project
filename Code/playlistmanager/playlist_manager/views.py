@@ -21,7 +21,7 @@ def create_user(request):
         if form.is_valid():
             new_user = User.objects.create_user(**form.cleaned_data)
             login(request, new_user)
-            return HttpResponseRedirect('/playlistmanager/playlist_list')
+            return HttpResponseRedirect('/playlistmanager/welcome')
     else:
         form = UserForm()
 
@@ -77,7 +77,7 @@ def create_playlist(request):
             collaborative_status = form.cleaned_data.get('collaborative_status')
             new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user, collaborative_status = collaborative_status)
             new_playlist.save()
-            return HttpResponseRedirect('/playlistmanager/playlist_list')
+            return HttpResponseRedirect('/playlistmanager/welcome')
     else:
         form = PlaylistForm()
 
