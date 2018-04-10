@@ -21,7 +21,7 @@ def create_user(request):
         if form.is_valid():
             new_user = User.objects.create_user(**form.cleaned_data)
             login(request, new_user)
-            return HttpResponseRedirect('/playlistmanager/artist_list')
+            return HttpResponseRedirect('/playlistmanager/playlist_list')
     else:
         form = UserForm()
 
@@ -80,3 +80,20 @@ def create_playlist(request):
         form = PlaylistForm()
 
     return render(request, 'playlist_manager/create_playlist.html', {'form': form})
+
+@login_required(login_url='/accounts/login/')
+def add_song_to_playlist(request, song_id):
+    song = get_object_or_404(Song, pk=song_id)
+    current_user = request.user
+    playlists = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
+    logging.warning(type(playlists))
+    if request.method == "POST":
+        try:
+            selected_playlist = playlists.get(pk=request.POST['playlist'])
+        except (KeyError, Playlist.DoesNotExist):
+            return render(request, 'playlist_manager/'+song_id +'/add_song_to_playlist', {'playlists': playlists,\
+            'error_message': "You didn't select a playlist"})
+        else:
+            selected_playlist.songs.add(song)
+
+    return render(request, 'playlist_manager/add_song_to_playlist.html', {'playlists': playlists})

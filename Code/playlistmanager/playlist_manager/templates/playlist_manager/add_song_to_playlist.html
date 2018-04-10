@@ -1,0 +1,14 @@
+<h1>{{ song.name }}</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="" method="post">
+  {% csrf_token %}
+  {% if playlists.exists %}
+  {% for playlist in playlists %}
+    <input type="radio" name="playlist" id="playlist{{ forloop.counter }}" value="{{ playlist.id }}"/>
+    <label for="playlist{{ forloop.counter }}">{{playlist.playlist_name}}</label><br/>
+  {% endfor %}
+  <input type="submit" value="Add"/>
+  {% else %}
+  <p>You have no playlists</p>
+  {% endif %}
+</form>
