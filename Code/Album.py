@@ -11,15 +11,25 @@ class Album ():
        sql = "SELECT songId FROM Album2Song  WHERE albumId=?"
        return (DBQuery.getList(sql, id))
 
-myAlbum  = Album ()
-mySong   = Song.Song ()
+   def find(self, pattern):
+       sql = "SELECT id FROM Album  WHERE name LIKE {}".format("\'%"+pattern+"%\'")
+       return (DBQuery.find(sql))
 
-### Get the album name
-print ("\n*** Album Name ***")
-print (myAlbum.getName(2))
+if __name__ == '__main__':
+   myAlbum  = Album ()
+   mySong   = Song.Song ()
 
-### Get the songs for the album
-print ("\n*** Song Names ***")
-songs = myAlbum.getSongs(2)
-for song in songs:
-   print (mySong.getName(song[0]))
+   ### Get the album name
+   print ("\n*** Album Name ***")
+   print (myAlbum.getName(2))
+
+   ### Find albums with pattern
+   print ("\n*** Album Name ***")
+   id = myAlbum.find ('Blue')
+   print (myAlbum.getName(id[0][0]))
+   
+   ### Get the songs for the album
+   print ("\n*** Song Names ***")
+   songs = myAlbum.getSongs(2)
+   for song in songs:
+      print (mySong.getName(song[0]))

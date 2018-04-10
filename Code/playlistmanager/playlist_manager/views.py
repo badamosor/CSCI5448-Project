@@ -51,6 +51,7 @@ def song_detail(request, song_id):
     song = get_object_or_404(Song, pk=song_id)
     return render(request, 'playlist_manager/song_detail.html', {'song': song})
 
+
 @login_required(login_url='/accounts/login/')
 def playlist_list(request):
     current_user = request.user
@@ -73,7 +74,8 @@ def create_playlist(request):
         if form.is_valid():
             playlist_name = form.cleaned_data.get('playlist_name')
             playlist_description = form.cleaned_data.get('playlist_description')
-            new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user)
+            collaborative_status = form.cleaned_data.get('collaborative_status')
+            new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user, collaborative_status = collaborative_status)
             new_playlist.save()
             return HttpResponseRedirect('/playlistmanager/playlist_list')
     else:
@@ -97,3 +99,11 @@ def add_song_to_playlist(request, song_id):
             selected_playlist.songs.add(song)
 
     return render(request, 'playlist_manager/add_song_to_playlist.html', {'playlists': playlists})
+
+@login_required(login_url='/accounts/login/')
+def welcome(request):
+    current_user = request.user
+    artist_list = Artist.objects.order_by('artist_name')[:5]
+    playlist_list = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
+    context = {'artist_list': artist_list,'playlist_list': playlist_list,}
+    return render(request, 'playlist_manager/welcome.html', context)
