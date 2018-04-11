@@ -33,7 +33,7 @@ class SpotifyExportFacade():
         self.spotifyWritePlaylist = SpotifyWritePlaylist()
 
     def runExport(self):
-        songIDs = self.spotifySongSearch.getSongIDs(songList)
+        songIDs = self.spotifySongSearch.getSongIDs(self.songList)
         builtPlaylist = self.spotifyBuildPlaylist.buildPlaylist(songIDs)
         self.spotifyWritePlaylist.writePlaylist(builtPlaylist)
 
