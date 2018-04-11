@@ -18,7 +18,7 @@ class Index(View):
         context = {}
         return render(request, 'playlist_manager/index.html', context)
 
-class CreateUser(View):
+class UserCreator(View):
     def get(self, request):
         form = UserForm()
         return render(request, 'playlist_manager/create_user.html', {'form': form})
@@ -66,7 +66,7 @@ class PlaylistDetail(View):
         songs = playlist.songs.order_by('song_name')
         return render(request, 'playlist_manager/playlist_detail.html', {'playlist': playlist, 'songs': songs})
 
-class CreatePlaylist(View):
+class PlaylistCreator(View):
     def get(self, request):
         form = PlaylistForm()
         return render(request, 'playlist_manager/create_playlist.html', {'form': form})
@@ -82,7 +82,7 @@ class CreatePlaylist(View):
             return HttpResponseRedirect('/playlistmanager/welcome')
 
 
-class PlaylistEdit(View):
+class PlaylistEditor(View):
     def get(self, request, song_id):
         song = get_object_or_404(Song, pk=song_id)
         current_user = request.user
