@@ -87,7 +87,7 @@ def create_playlist(request):
 def add_song_to_playlist(request, song_id):
     song = get_object_or_404(Song, pk=song_id)
     current_user = request.user
-    playlists = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
+    playlists = Playlist.objects.filter(owner=current_user) | Playlist.objects.filter(collaborative_status=True).order_by('playlist_name')
     logging.warning(type(playlists))
     if request.method == "POST":
         try:
@@ -97,7 +97,6 @@ def add_song_to_playlist(request, song_id):
             'error_message': "You didn't select a playlist"})
         else:
             selected_playlist.songs.add(song)
-
     return render(request, 'playlist_manager/add_song_to_playlist.html', {'playlists': playlists})
 
 @login_required(login_url='/accounts/login/')
