@@ -1,6 +1,6 @@
 import datetime
 
-class SpotifySongSearch():
+class SpotifySongSearcher():
     def getSongIDs(self, songList):
         songIDs = []
         for song in songList:
@@ -8,36 +8,36 @@ class SpotifySongSearch():
         return songIDs
 
 
-class SpotifyBuildPlaylist():
-    def buildPlaylist(self, songIDs):
+class SpotifyPlaylistBuilder():
+    def playlistBuilder(self, songIDs):
         playlist = []
         for id in songIDs:
             playlist.append((id,"Spotify"))
         return playlist
 
-class SpotifyWritePlaylist():
-    def writePlaylist(self, playlist):
+class SpotifyPlaylistWriter():
+    def playlistWriter(self, playlist):
         f = open("export.txt", "a")
         for song in playlist:
             f.write(str(song[0]) + " " + song[1] + " "+ str(datetime.datetime.now())+"\n")
 
 class SpotifyExportFacade():
     songList = []
-    spotifySongSearch = None
-    spotifyBuildPlaylist = None
-    spotifyWritePlaylist = None
+    spotifySongSearcher = None
+    spotifyPlaylistBuilder = None
+    spotifyPlaylistWriter = None
     def __init__(self, songList):
         self.songList = songList
-        self.spotifySongSearch = SpotifySongSearch()
-        self.spotifyBuildPlaylist = SpotifyBuildPlaylist()
-        self.spotifyWritePlaylist = SpotifyWritePlaylist()
+        self.spotifySongSearcher = SpotifySongSearcher()
+        self.spotifyPlaylistBuilder = SpotifyPlaylistBuilder()
+        self.spotifyPlaylistWriter = SpotifyPlaylistWriter()
 
     def runExport(self):
-        songIDs = self.spotifySongSearch.getSongIDs(self.songList)
-        builtPlaylist = self.spotifyBuildPlaylist.buildPlaylist(songIDs)
-        self.spotifyWritePlaylist.writePlaylist(builtPlaylist)
+        songIDs = self.spotifySongSearcher.getSongIDs(self.songList)
+        builtPlaylist = self.spotifyPlaylistBuilder.playlistBuilder(songIDs)
+        self.spotifyPlaylistWriter.playlistWriter(builtPlaylist)
 
-class TidalSongSearch():
+class TidalSongSearcher():
     def getSongIDs(self, songList):
         songIDs = []
         for song in songList:
@@ -45,36 +45,36 @@ class TidalSongSearch():
         return songIDs
 
 
-class TidalBuildPlaylist():
-    def buildPlaylist(self, songIDs):
+class TidalPlaylistBuilder():
+    def playlistBuilder(self, songIDs):
         playlist = []
         for id in songIDs:
             playlist.append((id,"Tidal"))
         return playlist
 
-class TidalWritePlaylist():
-    def writePlaylist(self, playlist):
+class TidalPlaylistWriter():
+    def playlistWriter(self, playlist):
         f = open("export.txt", "a")
         for song in playlist:
             f.write(str(song[0]) + " " + song[1] + " "+ str(datetime.datetime.now())+"\n")
 
 class TidalExportFacade():
     songList = []
-    TidalSongSearch = None
-    TidalBuildPlaylist = None
-    TidalWritePlaylist = None
+    TidalSongSearcher = None
+    TidalPlaylistBuilder = None
+    TidalPlaylistWriter = None
     def __init__(self, songList):
         self.songList = songList
-        self.TidalSongSearch = TidalSongSearch()
-        self.TidalBuildPlaylist = TidalBuildPlaylist()
-        self.TidalWritePlaylist = TidalWritePlaylist()
+        self.TidalSongSearcher = TidalSongSearcher()
+        self.TidalPlaylistBuilder = TidalPlaylistBuilder()
+        self.TidalPlaylistWriter = TidalPlaylistWriter()
 
     def runExport(self):
-        songIDs = self.TidalSongSearch.getSongIDs(songList)
-        builtPlaylist = self.TidalBuildPlaylist.buildPlaylist(songIDs)
-        self.TidalWritePlaylist.writePlaylist(builtPlaylist)
+        songIDs = self.TidalSongSearcher.getSongIDs(songList)
+        builtPlaylist = self.TidalPlaylistBuilder.playlistBuilder(songIDs)
+        self.TidalPlaylistWriter.playlistWriter(builtPlaylist)
 
-class GooglePlaySongSearch():
+class GooglePlaySongSearcher():
     def getSongIDs(self, songList):
         songIDs = []
         for song in songList:
@@ -82,63 +82,63 @@ class GooglePlaySongSearch():
         return songIDs
 
 
-class GooglePlayBuildPlaylist():
-    def buildPlaylist(self, songIDs):
+class GooglePlayPlaylistBuilder():
+    def playlistBuilder(self, songIDs):
         playlist = []
         for id in songIDs:
             playlist.append((id,"Google Play"))
         return playlist
 
-class GooglePlayWritePlaylist():
-    def writePlaylist(self, playlist):
+class GooglePlayPlaylistWriter():
+    def playlistWriter(self, playlist):
         f = open("export.txt", "a")
         for song in playlist:
             f.write(str(song[0]) + " " + song[1] + " "+ str(datetime.datetime.now())+"\n")
 
 class GooglePlayExportFacade():
     songList = []
-    GooglePlaySongSearch = None
-    GooglePlayBuildPlaylist = None
-    GooglePlayWritePlaylist = None
+    GooglePlaySongSearcher = None
+    GooglePlayPlaylistBuilder = None
+    GooglePlayPlaylistWriter = None
     def __init__(self, songList):
         self.songList = songList
-        self.GooglePlaySongSearch = GooglePlaySongSearch()
-        self.GooglePlayBuildPlaylist = GooglePlayBuildPlaylist()
-        self.GooglePlayWritePlaylist = GooglePlayWritePlaylist()
+        self.GooglePlaySongSearcher = GooglePlaySongSearcher()
+        self.GooglePlayPlaylistBuilder = GooglePlayPlaylistBuilder()
+        self.GooglePlayPlaylistWriter = GooglePlayPlaylistWriter()
 
     def runExport(self):
-        songIDs = self.GooglePlaySongSearch.getSongIDs(songList)
-        builtPlaylist = self.GooglePlayBuildPlaylist.buildPlaylist(songIDs)
-        self.GooglePlayWritePlaylist.writePlaylist(builtPlaylist)
+        songIDs = self.GooglePlaySongSearcher.getSongIDs(songList)
+        builtPlaylist = self.GooglePlayPlaylistBuilder.playlistBuilder(songIDs)
+        self.GooglePlayPlaylistWriter.playlistWriter(builtPlaylist)
 
 class Exporter():
     serviceId = -1
-    export_strategy = None
+    exportStrategy = None
     songList = []
     def __init__(self,serviceId,songList):
         self.serviceId = serviceId
         self.songList = songList
         if self.serviceId == 0:
-            self.export_strategy = ExportSpotify(songList)
+            self.exportStrategy = ExportSpotify(songList)
         elif self.serviceId == 1:
-            self.export_strategy = ExportTidal(songList)
+            self.exportStrategy = ExportTidal(songList)
         elif self.serviceId == 2:
-            self.export_strategy = ExportGooglePlay(songList)
+            self.exportStrategy = ExportGooglePlay(songList)
 
     def execute(self):
-        self.export_strategy.export()
+        self.exportStrategy.export()
 
     def __str__(self):
         print(self.serviceId)
 
-class ExportInterface():
+class AbstractExporterStrategy():
     songList = []
     def __init__(self, songList):
         raise NotImplementedError("This is abstract")
     def export(self):
         raise NotImplementedError("This is abstract")
 
-class ExportSpotify(ExportInterface):
+class ExportSpotify(AbstractExporterStrategy):
     songList = []
     spotifyExport = None
     def __init__(self, songList):
@@ -147,7 +147,7 @@ class ExportSpotify(ExportInterface):
     def export(self):
         self.spotifyExport.runExport()
 
-class ExportTidal(ExportInterface):
+class ExportTidal(AbstractExporterStrategy):
     songList = []
     tidalExport = None
     def __init__(self, songList):
@@ -156,7 +156,7 @@ class ExportTidal(ExportInterface):
     def export(self):
         self.tidalExport.runExport()
 
-class ExportGooglePlay(ExportInterface):
+class ExportGooglePlay(AbstractExporterStrategy):
     songList = []
     googlePlayExport = None
     def __init__(self, songList):
