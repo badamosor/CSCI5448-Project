@@ -42,20 +42,25 @@ class Album ():
        sql = "SELECT id FROM Album  WHERE name LIKE {}".format("\'%"+pattern+"%\'")
        return (DBQuery.find(sql))
 
-def searchDatabase (items, term):
-    for item in items:
-        if isinstance(item, Song):
-            print ("These are the Song mathces: ")
-        elif isinstance(item, Artist):
-            print ("These are the Artist mathces: ")
-        elif isinstance(item, Album):
-            print ("These are the Album mathces: ")
-        for match in item.find(term):
-            print ("    " + item.getName(match[0]))
+class SearchVanilla():
+
+   def searchDatabase (self, items, term):
+      for item in items:
+          if isinstance(item, Song):
+              print ("These are the Song matches: ")
+          elif isinstance(item, Artist):
+              print ("These are the Artist matches: ")
+          elif isinstance(item, Album):
+              print ("These are the Album matches: ")
+          for match in item.find(term):
+              print ("    " + item.getName(match[0]))
 
 if __name__ == '__main__':
     print ("\nSearch Term: the")
     items = [ Song(), Album(), Artist() ]
-    total = searchDatabase(items, "the")
+
+    sv = SearchVanilla()
+    
+    total = sv.searchDatabase(items, "the")
     print ("\n\nSearch Term: Blue")
-    total = searchDatabase(items, "Blue")
+    total = sv.searchDatabase(items, "Blue")

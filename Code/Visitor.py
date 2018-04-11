@@ -66,23 +66,28 @@ class MusicVisitorImplementation(MusicVisitor):
 
     def visit(self, item):
         if isinstance(item, Song):
-            print ("These are the Song mathces: ")
+            print ("These are the Song matches: ")
         elif isinstance(item, Artist):
-            print ("These are the Artist mathces: ")
+            print ("These are the Artist matches: ")
         elif isinstance(item, Album):
-            print ("These are the Album mathces: ")
+            print ("These are the Album matches: ")
         for match in item.find(self.pattern):
             print ("    " + item.getName(match[0]))
 
 
-def searchDatabase (items, term):
-    visitor = MusicVisitorImplementation(term)
-    for item in items:
-        item.accept(visitor)
+class SearchVisitor():
+
+    def searchDatabase (self, items, term):
+        visitor = MusicVisitorImplementation(term)
+        for item in items:
+            item.accept(visitor)
 
 if __name__ == '__main__':
     print ("\nSearch Term: the")
     items = [ Song(), Album(), Artist() ]
-    total = searchDatabase(items, "the")
+
+    sv = SearchVisitor()
+
+    total = sv.searchDatabase(items, "the")
     print ("\n\nSearch Term: Blue")
-    total = searchDatabase(items, "Blue")
+    total = sv.searchDatabase(items, "Blue")
