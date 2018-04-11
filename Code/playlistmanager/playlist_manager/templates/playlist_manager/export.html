@@ -1,0 +1,11 @@
+Export: Choose Service
+<form action="" method="post">
+  {% csrf_token %}
+  <input type="radio" name="spotify" id="spotify" value="0"/>
+  <label for="spotify">Spotify</label><br/>
+  <input type="radio" name="tidal" id="tidal" value="1"/>
+  <label for="tidal">Tidal</label><br/>
+  <input type="radio" name="googleplay" id="googleplay" value="2"/>
+  <label for="googleplay">Google Play Music</label><br/>
+  <input type="submit" value="Export"/>
+</form>

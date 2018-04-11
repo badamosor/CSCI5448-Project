@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 
 from . import views
 from .views import Index, ArtistList, ArtistDetail, AlbumDetail,SongDetail,\
-Welcome, PlaylistDetail, PlaylistList, CreatePlaylist, CreateUser, PlaylistEdit
+Welcome, PlaylistDetail, PlaylistList, CreatePlaylist, CreateUser, PlaylistEdit, \
+Export
 urlpatterns = [
     path('', Index.as_view(), name='index'),
     path('welcome', login_required(Welcome.as_view()), name='welcome'),
@@ -16,4 +17,5 @@ urlpatterns = [
     path('<int:album_id>/album', login_required(AlbumDetail.as_view()), name='album_detail'),
     path('<int:song_id>/song', login_required(SongDetail.as_view()), name='song_detail'),
     path('<int:playlist_id>/playlist', login_required(PlaylistDetail.as_view()), name='playlist_detail'),
+    path('<int:playlist_id>/export/', login_required(Export.as_view()), name='export'),
 ]

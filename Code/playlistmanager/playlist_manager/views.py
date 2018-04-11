@@ -8,8 +8,10 @@ from django.views import View
 from django.urls import reverse
 from .models import Artist, Album, Song, Playlist
 
+from playlist_manager import export
+
 import logging
-logger = logging.getLogger(__name__)
+import itertools
 
 class Index(View):
     def get(self,request):
@@ -46,7 +48,6 @@ class AlbumDetail(View):
         songs = get_list_or_404(album.songs.order_by('song_name'))
         return render(request, 'playlist_manager/album_detail.html', {'album': album, 'songs': songs})
 
-
 class SongDetail(View):
     def get(self, request, song_id):
         song = get_object_or_404(Song, pk=song_id)
@@ -65,7 +66,6 @@ class PlaylistDetail(View):
         songs = playlist.songs.order_by('song_name')
         return render(request, 'playlist_manager/playlist_detail.html', {'playlist': playlist, 'songs': songs})
 
-
 class CreatePlaylist(View):
     def get(self, request):
         form = PlaylistForm()
@@ -80,7 +80,6 @@ class CreatePlaylist(View):
             new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user, collaborative_status = collaborative_status)
             new_playlist.save()
             return HttpResponseRedirect('/playlistmanager/welcome')
-
 
 
 class PlaylistEdit(View):
@@ -104,7 +103,17 @@ class PlaylistEdit(View):
             return render(request, 'playlist_manager/add_song_to_playlist.html', {'playlists': playlists,\
             'success_message': 'Added '+song.song_name+'to playlist '+selected_playlist.playlist_name})
 
-
+class Export(View):
+    def get(self, request, playlist_id):
+        return render(request, 'playlist_manager/export.html', {})
+    def post(self, request, playlist_id):
+        current_playlist = get_object_or_404(Playlist, pk=playlist_id)
+        songs = current_playlist.songs.order_by('song_name')
+        song_list = list(songs)
+        song_list_strings = [str(x) for x in song_list]
+        exp = export.Exporter(0,song_list_strings)
+        exp.execute()
+        return render(request, 'playlist_manager/export.html', {})
 
 class Welcome(View):
     def get(self, request):
