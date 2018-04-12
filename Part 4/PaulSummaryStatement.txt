@@ -26,7 +26,9 @@ Note: Much of the work with the model and the prototyping of design patterns was
    - 30 hours writing rest of functionality
 
 8) Strategy - We prototyped Search using Strategy and two implementations that can be dynamically switched. The code is in Strategy.py.
-   Visitor - We prototyped one of the search methods using the Visitor design pattern. 
+   Visitor - We prototyped one of the search methods using the Visitor design pattern.
+   Facade - Was prototyped in the model to abstract the Spotify interface from the application.
+   Strategy - Was prototyped in the model as a nice way to export to one of the three streaming services dynamically. 
 
 9) - Show the class diagram for the actual design pattern
  
