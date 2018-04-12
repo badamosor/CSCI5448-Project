@@ -3,12 +3,14 @@ import sys
 import sqlite3
 
 class Playlist():
+    
+    def __init__(self):
 
-    name = ""
-    playlistId = 0
+        self.name = ""
+        self.playlistId = 0
 
-    discription = ""
-    collaboration = False
+        self.discription = ""
+        self.collaboration = False
 
     def __init__(self, name):
         sql = "SELECT id FROM Playlist WHERE name=?"

@@ -4,10 +4,18 @@ import sys
 
 class User ():
  
-    password = ""
-    email = ""
-    collaborating = []
-    playlists = []
+    def __init__(self):
+        self.name = ""
+        self.password = ""
+        self.email = ""
+        self.collaborating = []
+        self.playlists = []
+    
+    def setName(self,name):
+        self.name = name
+    
+    def getName(self):
+        return self.name
 
     def setPassword(self, password):
         self.password = password
@@ -32,46 +40,49 @@ class User ():
     def addCollaboration(self, playlist):
         playlist.setCollaboration(True);
     
-if __name__ == '__main__':
+    def update(self):
+        print ("User {} notified".format(self.name))
+    
+#if __name__ == '__main__':
 
-    myUser = User()
+ #   myUser = User()
 
 ### Set and get Password 
-    myUser.setPassword("123")
-    print ("password: " +  myUser.getPassword())
+  #  myUser.setPassword("123")
+   # print ("password: " +  myUser.getPassword())
 
 ### Set and get Email 
-    myUser.setEmail("abc@example.com")
-    print ("Email: " +  myUser.getEmail())
+   # myUser.setEmail("abc@example.com")
+   # print ("Email: " +  myUser.getEmail())
 
 ### Create a playlist
-    ABC = myUser.createPlaylist('ABC')
-    DEF = myUser.createPlaylist('DEF')
-    OPQ = myUser.createPlaylist('OPQ')
-    print ("Created playlist id: ", ABC.getId())
-    print ("Created playlist id: ", DEF.getId())
-    print ("Created playlist id: ", OPQ.getId())
+   # ABC = myUser.createPlaylist('ABC')
+   # DEF = myUser.createPlaylist('DEF')
+   # OPQ = myUser.createPlaylist('OPQ')
+    #print ("Created playlist id: ", ABC.getId())
+    #print ("Created playlist id: ", DEF.getId())
+    #print ("Created playlist id: ", OPQ.getId())
 
 ### Get playlists
-    print ("Playlists: ", myUser.getPlaylists())
+   # print ("Playlists: ", myUser.getPlaylists())
 
 ### Add songs to a playlist
-    ABC.addSong(2)
-    ABC.addSongs([2, 3, 4, 5])
+    #ABC.addSong(2)
+    #ABC.addSongs([2, 3, 4, 5])
 
-    DEF.addSong(11)
-    DEF.addSongs([2, 3, 16, 1])
+    #DEF.addSong(11)
+    #DEF.addSongs([2, 3, 16, 1])
 
 ### Delete song
 
-    ABC.deleteSong(2)
+    #ABC.deleteSong(2)
 
 ### Add collaboration
-    print ("Collaboration before:", ABC.getCollaboration())
-    myUser.addCollaboration(ABC);
-    print ("Add collaboration:", ABC.getCollaboration())
+    #print ("Collaboration before:", ABC.getCollaboration())
+    #myUser.addCollaboration(ABC);
+    #print ("Add collaboration:", ABC.getCollaboration())
 
 
 ### Get songs
 
-    print DEF.getSongs()
+    #print DEF.getSongs()
