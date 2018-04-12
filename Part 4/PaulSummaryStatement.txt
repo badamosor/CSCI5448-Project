@@ -10,6 +10,7 @@ Note: Much of the work with the model and the prototyping of design patterns was
   
    Paul - Implemented the Search prototype with Strategy and Visitor.
           Constructed the class diagram for Search
+          Produced writeups for Design Patterns with markup and examples of the implemented design patterns.
 
    Luke - Much of the MVC implementation.  
           Got the team rolling in the implementation.
