@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views import View
 from django.urls import reverse
 from .models import Artist, Album, Song, Playlist
+from django.db.models import Q
 
 from playlist_manager import export
 
@@ -86,13 +87,14 @@ class PlaylistEditor(View):
     def get(self, request, song_id):
         song = get_object_or_404(Song, pk=song_id)
         current_user = request.user
-        playlists = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
+        playlists = Playlist.objects.filter(Q(owner=current_user) | Q(collaborative_status = True)).order_by('playlist_name')
         return render(request, 'playlist_manager/add_song_to_playlist.html', {'playlists': playlists})
     def post(self, request, song_id):
         song = get_object_or_404(Song, pk=song_id)
         logging.warning(type(song_id))
         current_user = request.user
-        playlists = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
+        playlists = Playlist.objects.filter(Q(owner=current_user) | Q(collaborative_status = True)).order_by('playlist_name')
+        #playlists = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
         try:
             selected_playlist = playlists.get(pk=request.POST['playlist'])
         except (KeyError, Playlist.DoesNotExist):
