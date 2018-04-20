@@ -78,10 +78,10 @@ class PlaylistCreator(View):
             playlist_name = form.cleaned_data.get('playlist_name')
             playlist_description = form.cleaned_data.get('playlist_description')
             collaborative_status = form.cleaned_data.get('collaborative_status')
-            new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, owner=current_user, collaborative_status = collaborative_status)
+            new_playlist = Playlist(playlist_name=playlist_name, playlist_description=playlist_description, collaborative_status = collaborative_status)
             new_playlist.save()
+            new_playlist.owner.add(current_user)
             return HttpResponseRedirect('/playlistmanager/welcome')
-
 
 class PlaylistEditor(View):
     def get(self, request, song_id):
@@ -126,3 +126,11 @@ class Welcome(View):
 
         context = {'artist_list': artist_list,'playlist_list': playlist_list, 'playlist_list_collaborative': playlist_list_collaborative}
         return render(request, 'playlist_manager/welcome.html', context)
+
+class Follower(View):
+    def get(self, request, playlist_id):
+        current_user = request.user
+        current_playlist = get_object_or_404(Playlist, pk=playlist_id)
+        current_playlist.owner.add(current_user)
+        current_playlist.save()
+        return render(request, 'playlist_manager/follow_playlist.html', {'current_playlist': current_playlist})

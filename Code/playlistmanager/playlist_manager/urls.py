@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from . import views
 from .views import Index, ArtistList, ArtistDetail, AlbumDetail,SongDetail,\
 Welcome, PlaylistDetail, PlaylistList, PlaylistCreator, UserCreator, PlaylistEditor, \
-Export
+Export, Follower
 urlpatterns = [
     path('', Index.as_view(), name='index'),
     path('welcome', login_required(Welcome.as_view()), name='welcome'),
@@ -18,4 +18,5 @@ urlpatterns = [
     path('<int:song_id>/song', login_required(SongDetail.as_view()), name='song_detail'),
     path('<int:playlist_id>/playlist', login_required(PlaylistDetail.as_view()), name='playlist_detail'),
     path('<int:playlist_id>/export/', login_required(Export.as_view()), name='export'),
+    path('<int:playlist_id>/follow_playlist/', login_required(Follower.as_view()), name='follow'),
 ]

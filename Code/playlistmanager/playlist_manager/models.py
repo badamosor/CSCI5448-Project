@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -29,7 +30,8 @@ class Artist(models.Model):
 class Playlist(models.Model):
     playlist_name = models.CharField(max_length = 200, help_text="Enter a playlist name")
     playlist_description = models.CharField(max_length = 1000, help_text="Enter a discription for your playlist", default = '')
-    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null = True, related_name = 'playlist')
+    #owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null = True, related_name = 'playlist')
+    owner = models.ManyToManyField(User)
     collaborative_status = models.BooleanField(default = False)
     songs = models.ManyToManyField(Song)
 
