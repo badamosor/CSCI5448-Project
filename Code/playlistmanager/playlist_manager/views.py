@@ -129,10 +129,15 @@ class Welcome(View):
         playlist_list = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
         playlist_list_collaborative = Playlist.objects.filter((Q(collaborative_status=True)) & (~Q(owner = current_user))).order_by('playlist_name')
         playlist_list_shared = Playlist.objects.filter(Q(shared_status=True) & (~Q(owner=current_user))).order_by('playlist_name')
-
-
         context = {'artist_list': artist_list,'playlist_list': playlist_list, 'playlist_list_collaborative': playlist_list_collaborative, 'playlist_list_shared': playlist_list_shared}
         return render(request, 'playlist_manager/welcome.html', context)
+
+    def post(self, request):
+        pattern = request.POST.get("Search", "")
+        artists = Artist.objects.filter(artist_name__contains=pattern)
+        albums  = Album.objects.filter(album_name__contains=pattern)
+        songs   = Song.objects.filter(song_name__contains=pattern)
+        return render(request, 'playlist_manager/search_detail.html', {'artists': artists, 'albums': albums, 'songs': songs})
 
 class Follower(View):
     def get(self, request, playlist_id):

@@ -10,6 +10,7 @@ class UserForm(forms.Form):
     class MetaUser:
         model = User
         fields = ('username', 'email', 'password')
+
 class PlaylistForm(forms.Form):
     playlist_name = forms.CharField()
     playlist_description = forms.CharField()

@@ -48,3 +48,12 @@
  <p> No playlists are available. </p>
 {% endif %}
 <a href="create_playlist">Create New Playlist</a>
+
+<br>
+<br>
+<form action='' method='POST'> {% csrf_token %}
+    <div >
+        <input type='text' name='Search' id='search_string'>
+        <input type='submit' value='search'>
+    </div>
+</form>
