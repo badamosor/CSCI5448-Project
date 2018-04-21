@@ -9,7 +9,7 @@
  <p> No artists are available. </p>
 {% endif %}
 
- <h3> Collaborative Playlists </h3>
+ <h3> New Collaborative Playlists </h3>
 
 {% if playlist_list_collaborative %}
   <ul>
@@ -17,6 +17,20 @@
       <li><a = href="{% url 'playlist_detail' playlist.id %}">{{ playlist.playlist_name }}</a></li>
     {% endfor %}
   </ul>
+
+{% else %}
+ <p> No artists are available. </p>
+{% endif %}
+
+<h3> Shared Playlists </h3>
+
+{% if playlist_list_shared %}
+  <ul>
+    {% for playlist in playlist_list_shared %}
+      <li><a = href="{% url 'playlist_detail' playlist.id %}">{{ playlist.playlist_name }}</a></li>
+    {% endfor %}
+  </ul>
+
 {% else %}
  <p> No artists are available. </p>
 {% endif %}

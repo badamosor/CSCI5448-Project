@@ -33,6 +33,8 @@ class Playlist(models.Model):
     #owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null = True, related_name = 'playlist')
     owner = models.ManyToManyField(User)
     collaborative_status = models.BooleanField(default = False)
+    shared_status = models.BooleanField(default = False)
+    
     songs = models.ManyToManyField(Song)
 
     def __str__(self):

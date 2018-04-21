@@ -63,9 +63,15 @@ class PlaylistList(View):
 
 class PlaylistDetail(View):
     def get(self, request, playlist_id):
+        current_user = request.user
         playlist = get_object_or_404(Playlist, pk=playlist_id)
         songs = playlist.songs.order_by('song_name')
+        if ((current_user not in playlist.owner.all()) & (playlist.shared_status)):
+            return render(request, 'playlist_manager/shared_playlist_detail.html', {'playlist': playlist, 'songs': songs})
+        
         return render(request, 'playlist_manager/playlist_detail.html', {'playlist': playlist, 'songs': songs})
+
+
 
 class PlaylistCreator(View):
     def get(self, request):
@@ -121,9 +127,11 @@ class Welcome(View):
         current_user = request.user
         artist_list = Artist.objects.order_by('artist_name')[:5]
         playlist_list = Playlist.objects.filter(owner=current_user).order_by('playlist_name')
-        playlist_list_collaborative = Playlist.objects.filter(collaborative_status=True).order_by('playlist_name')
+        playlist_list_collaborative = Playlist.objects.filter((Q(collaborative_status=True)) & (~Q(owner = current_user))).order_by('playlist_name')
+        playlist_list_shared = Playlist.objects.filter(Q(shared_status=True) & (~Q(owner=current_user))).order_by('playlist_name')
 
-        context = {'artist_list': artist_list,'playlist_list': playlist_list, 'playlist_list_collaborative': playlist_list_collaborative}
+
+        context = {'artist_list': artist_list,'playlist_list': playlist_list, 'playlist_list_collaborative': playlist_list_collaborative, 'playlist_list_shared': playlist_list_shared}
         return render(request, 'playlist_manager/welcome.html', context)
 
 class Follower(View):
@@ -133,3 +141,12 @@ class Follower(View):
         current_playlist.owner.add(current_user)
         current_playlist.save()
         return render(request, 'playlist_manager/follow_playlist.html', {'current_playlist': current_playlist})
+
+class PlaylistSharer(View):
+    def get(self, request, playlist_id):
+        current_user = request.user
+        current_playlist = get_object_or_404(Playlist, pk=playlist_id)
+        current_playlist.shared_status = True
+        current_playlist.collaborative_status = False
+        current_playlist.save()
+        return render(request, 'playlist_manager/share_playlist.html', {'current_playlist': current_playlist})
