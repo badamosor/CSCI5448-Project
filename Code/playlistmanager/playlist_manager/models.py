@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from .ItemElement import ItemElement
 
 # Create your models here.
 
-class Song(models.Model):
+class Song(models.Model, ItemElement):
     song_name = models.CharField(max_length=200)
     artist_name = models.CharField(max_length=200, default='')
     album_name = models.CharField(max_length=200, default='')
@@ -13,18 +14,27 @@ class Song(models.Model):
     def __str__(self):
         return self.song_name
 
-class Album(models.Model):
+    def accept (self, visitor):
+        return visitor.visit(self)
+
+class Album(models.Model, ItemElement):
     album_name = models.CharField(max_length=200)
     songs = models.ManyToManyField(Song)
     def __str__(self):
         return self.album_name
 
-class Artist(models.Model):
+    def accept (self, visitor):
+        return visitor.visit(self)
+
+class Artist(models.Model, ItemElement):
     artist_name = models.CharField(max_length=200)
     albums = models.ManyToManyField(Album)
     songs = models.ManyToManyField(Song)
     def __str__(self):
         return self.artist_name
+
+    def accept (self, visitor):
+        return visitor.visit(self)
 
 class Playlist(models.Model):
     playlist_name = models.CharField(max_length = 200, help_text="Enter a playlist name")

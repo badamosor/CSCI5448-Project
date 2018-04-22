@@ -8,7 +8,6 @@ from django.views import View
 from django.urls import reverse
 from .models import Artist, Album, Song, Playlist
 from django.db.models import Q
-from .SearchVisitor import SearchVisitor
 
 from playlist_manager import export
 
@@ -134,13 +133,10 @@ class Welcome(View):
         return render(request, 'playlist_manager/welcome.html', context)
 
     def post(self, request):
-        items = [ Song(), Album(), Artist() ]
-        sv = SearchVisitor()
         pattern = request.POST.get("Search", "")
-        search_results = sv.searchDatabase(items, pattern)
-        artists = search_results['artist']
-        albums  = search_results['album']
-        songs   = search_results['song']
+        artists = Artist.objects.filter(artist_name__contains=pattern)
+        albums  = Album.objects.filter(album_name__contains=pattern)
+        songs   = Song.objects.filter(song_name__contains=pattern)
         return render(request, 'playlist_manager/search_detail.html', {'artists': artists, 'albums': albums, 'songs': songs})
 
 class Follower(View):
