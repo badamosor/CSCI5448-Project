@@ -69,7 +69,7 @@ class PlaylistDetail(View):
         songs = playlist.songs.order_by('song_name')
         if ((current_user not in playlist.owner.all()) & (playlist.shared_status)):
             return render(request, 'playlist_manager/shared_playlist_detail.html', {'playlist': playlist, 'songs': songs})
-        
+
         return render(request, 'playlist_manager/playlist_detail.html', {'playlist': playlist, 'songs': songs})
 
 
