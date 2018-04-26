@@ -10,6 +10,7 @@
 \usepackage{ltxtable}
 \usepackage{wasysym}
 \usepackage{tabularx}
+\usepackage{cleveref}
 \title{Project 50 Music Playlist Manager}
 \date{}
 \begin{document}
@@ -81,18 +82,46 @@ playlists in a generic format that can then be integrated into the user’s serv
 	\end{tabularx}
 \end{table}
 \LTXtable{450pt}{functionalTableIncomplete}
-\section{Class Diagram}
+\section{Class Diagrams}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.35]{MusicManagerClassDiagram.png}
 	\caption{Class Diagram from Part 2}
 	\label{fig:classDiagPart2}
 \end{figure}
+The class diagram in \Cref{fig:classDiagCompleted} is entirely completed. The green classes are classes that are implemented by Django so there are no details included. The blue classes represent a larger set of classes that didn't fit in this diagram. They can be seen in detail in \Cref{fig:classDiagExport} and \Cref{fig:classDiagSearch} respectively. 
+
+Our class diagram changed significantly between Part 2 and now. The fundamental reason for this is we started working with the Django framework after we finished the Part 2. Since Django had a lot of built of functionality for accessing data from a database and then displaying that data, we incorporated our ideas from Part 2 into this framework. We also updated the class diagram to reflect the design patterns we had implemented. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.25]{DiagramAddedSearch.png}
-	\caption{Class Diagram}
+	\caption{Class Diagram Completed}
 	\label{fig:classDiagCompleted}
 \end{figure}
-Our class diagram changed significantly between Part 2 and now. The fundamental reason for this is we started working with the Django framework after we finished the Part 2 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{ExportClassDiagram.png}
+	\caption{Class Diagram for Export}
+	\label{fig:classDiagExport}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{Search.png}
+	\caption{Class Diagram for Search}
+	\label{fig:classDiagSearch}
+\end{figure}
+\section{Design Patterns}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{ExportClassDiagram.jpg}
+	\caption{Class Diagram for Export with Strategy and Facade Patterns Highlighted}
+	\label{fig:classDiagExportPattern}
+\end{figure}
+We used the Strategy pattern as a way to choose which external music we wanted to export to and use the appropriate algorithm for it. This was combined with the Facade pattern to handle the complexities of exporting a playlist. This allowed us to make a nice interface that didn't care about all the nitty-gritty details of exporting. This pattern would be even more important if we had worked with the actual music service API's where things would have been even more complicated. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.25]{Search.jpg}
+	\caption{Class Diagram for Search with Visitor Pattern Highlighted}
+	\label{fig:classDiagSearchPattern}
+\end{figure}
 \end{document}
