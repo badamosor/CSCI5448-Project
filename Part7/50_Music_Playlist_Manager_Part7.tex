@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
 \usepackage{array}
 \usepackage{float}
 \usepackage{caption}
@@ -124,4 +125,6 @@ We used the Strategy pattern as a way to choose which external music we wanted t
 	\caption{Class Diagram for Search with Visitor Pattern Highlighted}
 	\label{fig:classDiagSearchPattern}
 \end{figure}
+\section{What We Learned}
+Throughout this project, we learned the importance of planning ahead. One of the biggest mistakes was not considering any of our implementation details during Part 2 of the project. In our project, we ended up working with the Django framework. When working with this framework, things like getting data from the database and displaying it on a page are handled in a much simpler way. Not only did we have to change our class diagram from Part 2 to fit with the Django framework, we also wasted time for Part 2 by doing unnecessary work. Even with this setback, a lot of the work we did during Part 2 made subsequent work easier. When converting the classes for Artist, Song, Album, and Playlist into Django Models (essentially Python representations for database objects), not a lot of thinking had to be done since we had already done it in Part 2.
 \end{document}
